@@ -1,0 +1,200 @@
+--- [START 2017-10-13 00:40:58] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 235202
+	PROJECT_PATH = /root/share/project/kaggle/cdiscount/build/dummy-00
+	out_dir      = /root/share/project/kaggle/cdiscount/results/xception-180-01
+
+** net setting **
+<class 'net.model.cdiscount.xception.Xception'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 191931
+	len(valid_loader)   = 138
+	batch_size  = 64
+	iter_accum  = 4
+	batch_size*iter_accum  = 256
+
+def train_augment(image):
+
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.07,  0.07],
+                scale_limit  = [0.9, 1.3],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image):
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+	loading @ pretrained_file = /root/share/data/models/reference/imagenet/xception/caffe-model/inception/xception/xception.keras.convert.pth
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7fc5f293ef60>
+ momentum=0.900000
+ LR=Step Learning Rates
+rates=[' 0.1000']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000    0.0 k   0.00  | 8.5813  0.0001 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.1000    1.0 k   0.02  | 3.2922  0.4132 | 3.4827  0.3871 | 3.1765  0.4531 |    30 min 
+0.1000    2.0 k   0.04  | 2.9473  0.4583 | 3.0734  0.4430 | 3.1455  0.4844 |    60 min 
+0.1000    3.0 k   0.06  | 2.7639  0.4816 | 2.7981  0.4727 | 3.6848  0.3906 |    91 min 
+
+--- [START 2017-10-13 02:13:26] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 235202
+	PROJECT_PATH = /root/share/project/kaggle/cdiscount/build/dummy-00
+	out_dir      = /root/share/project/kaggle/cdiscount/results/xception-180-01
+
+** net setting **
+<class 'net.model.cdiscount.xception.Xception'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 191931
+	len(valid_loader)   = 138
+	batch_size  = 64
+	iter_accum  = 4
+	batch_size*iter_accum  = 256
+
+def train_augment(image):
+
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.07,  0.07],
+                scale_limit  = [0.9, 1.3],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image):
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+	loading @ initial_checkpoint = /root/share/project/kaggle/cdiscount/results/xception-180-01/checkpoint/00003000_model.pth
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7fba8aa49f60>
+ momentum=0.900000
+ LR=Step Learning Rates
+rates=[' 0.0500']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000    3.0 k   0.06  | 2.7639  0.4816 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.0500    4.0 k   0.08  | 2.5128  0.5188 | 2.4679  0.5080 | 2.2913  0.5781 |    31 min 
+0.0500    5.0 k   0.10  | 2.4564  0.5290 | 2.2812  0.5361 | 2.4341  0.4844 |    62 min 
+0.0500    6.0 k   0.13  | 2.4390  0.5273 | 2.1414  0.5721 | 3.4312  0.4219 |    93 min 
+0.0500    7.0 k   0.15  | 2.3912  0.5364 | 2.4853  0.5217 | 2.6997  0.5156 |   123 min 
+0.0500    8.0 k   0.17  | 2.3245  0.5431 | 2.3828  0.5279 | 2.7506  0.5781 |   154 min 
+0.0500    9.0 k   0.19  | 2.2966  0.5422 | 2.3369  0.5355 | 2.0447  0.5781 |   185 min 
+0.0500   10.0 k   0.21  | 2.2467  0.5513 | 2.3674  0.5305 | 1.7138  0.5938 |   216 min 
+0.0500   11.0 k   0.23  | 2.2146  0.5572 | 2.2834  0.5447 | 2.2227  0.5625 |   246 min 
+0.0500   12.0 k   0.25  | 2.1773  0.5653 | 2.2451  0.5430 | 2.1055  0.5625 |   277 min 
+0.0500   13.0 k   0.27  | 2.1537  0.5631 | 2.3157  0.5498 | 2.2264  0.5625 |   307 min 
+0.0500   14.0 k   0.29  | 2.1508  0.5653 | 2.2386  0.5482 | 2.2210  0.5625 |   337 min 
+0.0500   15.0 k   0.31  | 2.1398  0.5630 | 2.2701  0.5363 | 2.4149  0.4531 |   367 min 
+0.0500   16.0 k   0.33  | 2.1266  0.5680 | 2.1639  0.5623 | 2.4345  0.5312 |   396 min 
+
+--- [START 2017-10-13 08:51:11] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 235202
+	PROJECT_PATH = /root/share/project/kaggle/cdiscount/build/dummy-00
+	out_dir      = /root/share/project/kaggle/cdiscount/results/xception-180-01
+
+** net setting **
+<class 'net.model.cdiscount.xception.Xception'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 191931
+	len(valid_loader)   = 138
+	batch_size  = 64
+	iter_accum  = 4
+	batch_size*iter_accum  = 256
+
+def train_augment(image):
+
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.07,  0.07],
+                scale_limit  = [0.9, 1.3],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image):
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+	loading @ initial_checkpoint = /root/share/project/kaggle/cdiscount/results/xception-180-01/checkpoint/00016000_model.pth
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f3c164b3f60>
+ momentum=0.900000
+ LR=Step Learning Rates
+rates=[' 0.0100']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000   16.0 k   0.33  | 2.1266  0.5680 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.0100   17.0 k   0.35  | 1.9706  0.5998 | 1.9423  0.5939 | 1.9894  0.6562 |    30 min 
+0.0100   18.0 k   0.38  | 1.9487  0.6028 | 1.8411  0.6072 | 2.0911  0.5312 |    60 min 
+0.0100   19.0 k   0.40  | 1.9259  0.6060 | 1.7176  0.6275 | 2.7839  0.5469 |    90 min 
+0.0100   20.0 k   0.42  | 1.9094  0.6075 | 1.8788  0.6111 | 2.0030  0.5312 |   120 min 
+0.0100   21.0 k   0.44  | 1.8926  0.6101 | 1.7974  0.6189 | 2.1048  0.6562 |   150 min 
+0.0100   22.0 k   0.46  | 1.8871  0.6110 | 1.7595  0.6176 | 1.7128  0.6406 |   182 min 
+0.0100   23.0 k   0.48  | 1.8835  0.6127 | 1.7962  0.6133 | 1.1809  0.7656 |   214 min 
+0.0100   24.0 k   0.50  | 1.8731  0.6134 | 1.7594  0.6230 | 1.6464  0.6250 |   247 min 

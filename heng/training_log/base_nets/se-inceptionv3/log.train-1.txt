@@ -1,0 +1,2758 @@
+
+--- [START 2017-10-10 22:39:30] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1507646369
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/excited-inception3-180-02b
+	pretrained_file    = /home/ck/project/results/inception3-180-02a/checkpoint/00049000_model.pth
+	initial_checkpoint = /home/ck/project/results/excited-inception3-180-02a/checkpoint/0001200_model.pth
+
+** net setting **
+<class 'net.model.cdiscount.excited_inception_v3.SEInception3'>
+
+
+SEInception3 (
+  (Conv2d_1a_3x3): BasicConv2d (
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_2a_3x3): BasicConv2d (
+    (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_2b_3x3): BasicConv2d (
+    (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_3b_1x1): BasicConv2d (
+    (conv): Conv2d(64, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(80, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_4a_3x3): BasicConv2d (
+    (conv): Conv2d(80, 192, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Mixed_5b): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (192 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 192)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_5c): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (256 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 256)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_5d): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (288 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 288)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6a): InceptionB (
+    (branch3x3): BasicConv2d (
+      (conv): Conv2d(288, 384, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (288 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 288)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6b): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(128, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(128, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6c): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6d): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6e): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7a): InceptionD (
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2): BasicConv2d (
+      (conv): Conv2d(192, 320, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_4): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7b): InceptionE (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(1280, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(1280, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(1280, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(1280, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (1280 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 1280)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7c): InceptionE (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(2048, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(2048, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(2048, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(2048, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (2048 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 2048)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (fc): Linear (2048 -> 5270)
+)
+    def __init__(self, in_shape=(3,128,128), num_classes=1000 ):
+        super(SEInception3, self).__init__()
+        in_channels, height, width = in_shape
+        self.num_classes=num_classes
+        assert(in_channels==3)
+
+        # self.aux_logits = aux_logits
+        # self.transform_input = transform_input
+        self.Conv2d_1a_3x3 = BasicConv2d(in_channels, 32, kernel_size=3, stride=2)
+        self.Conv2d_2a_3x3 = BasicConv2d(32, 32, kernel_size=3)
+        self.Conv2d_2b_3x3 = BasicConv2d(32, 64, kernel_size=3, padding=1)
+        self.Conv2d_3b_1x1 = BasicConv2d(64, 80, kernel_size=1)
+        self.Conv2d_4a_3x3 = BasicConv2d(80, 192, kernel_size=3)
+        self.Mixed_5b = InceptionA(192, pool_features=32)
+        self.Mixed_5c = InceptionA(256, pool_features=64)
+        self.Mixed_5d = InceptionA(288, pool_features=64)
+        self.Mixed_6a = InceptionB(288)
+        self.Mixed_6b = InceptionC(768, channels_7x7=128)
+        self.Mixed_6c = InceptionC(768, channels_7x7=160)
+        self.Mixed_6d = InceptionC(768, channels_7x7=160)
+        self.Mixed_6e = InceptionC(768, channels_7x7=192)
+        # if aux_logits:
+        #     self.AuxLogits = InceptionAux(768, num_classes)
+        self.Mixed_7a = InceptionD(768)
+        self.Mixed_7b = InceptionE(1280)
+        self.Mixed_7c = InceptionE(2048)
+
+        ##------------------------------------------------------------
+        ## add se
+        self.Mixed_5b.add_module("SELayer", SELayer(192))
+        self.Mixed_5c.add_module("SELayer", SELayer(256))
+        self.Mixed_5d.add_module("SELayer", SELayer(288))
+        self.Mixed_6a.add_module("SELayer", SELayer(288))
+        self.Mixed_6b.add_module("SELayer", SELayer(768))
+        self.Mixed_6c.add_module("SELayer", SELayer(768))
+        self.Mixed_6d.add_module("SELayer", SELayer(768))
+        self.Mixed_6e.add_module("SELayer", SELayer(768))
+        self.Mixed_7a.add_module("SELayer", SELayer(768))
+        self.Mixed_7b.add_module("SELayer", SELayer(1280))
+        self.Mixed_7c.add_module("SELayer", SELayer(2048))
+
+        ##------------------------------------------------------------
+        self.fc = nn.Linear(2048, num_classes)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d) or isinstance(m, nn.Linear):
+                import scipy.stats as stats
+                stddev = m.stddev if hasattr(m, 'stddev') else 0.1
+                X = stats.truncnorm(-2, 2, scale=stddev)
+                values = torch.Tensor(X.rvs(m.weight.data.numel()))
+                values = values.view(m.weight.data.size())
+                m.weight.data.copy_(values)
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    def forward(self, x):
+
+        # if self.transform_input:
+        #     x = x.clone()
+        #     x[:, 0] = x[:, 0] * (0.229 / 0.5) + (0.485 - 0.5) / 0.5
+        #     x[:, 1] = x[:, 1] * (0.224 / 0.5) + (0.456 - 0.5) / 0.5
+        #     x[:, 2] = x[:, 2] * (0.225 / 0.5) + (0.406 - 0.5) / 0.5
+
+
+        # 299 x 299 x 3
+        x = self.Conv2d_1a_3x3(x)
+        # 149 x 149 x 32
+        x = self.Conv2d_2a_3x3(x)
+        # 147 x 147 x 32
+        x = self.Conv2d_2b_3x3(x)
+        # 147 x 147 x 64
+        x = F.max_pool2d(x, kernel_size=3, stride=2)
+        # 73 x 73 x 64
+        x = self.Conv2d_3b_1x1(x)
+        # 73 x 73 x 80
+        x = self.Conv2d_4a_3x3(x)
+        # 71 x 71 x 192
+        x = F.max_pool2d(x, kernel_size=3, stride=2)
+        # 35 x 35 x 192
+        x = self.Mixed_5b(x)
+        # 35 x 35 x 256
+        x = self.Mixed_5c(x)
+        # 35 x 35 x 288
+        x = self.Mixed_5d(x)
+        # 35 x 35 x 288
+        x = self.Mixed_6a(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6b(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6c(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6d(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6e(x)
+        # 17 x 17 x 768
+
+        # if self.training and self.aux_logits:
+        #     aux = self.AuxLogits(x)
+
+        # 17 x 17 x 768
+        x = self.Mixed_7a(x)
+        # 8 x 8 x 1280
+        x = self.Mixed_7b(x)
+        # 8 x 8 x 2048
+        x = self.Mixed_7c(x)
+        # 8 x 8 x 2048
+
+        #x = F.avg_pool2d(x, kernel_size=8)
+        x = F.adaptive_avg_pool2d(x, output_size=1)
+
+        # 1 x 1 x 2048
+        #x = F.dropout(x, training=self.training)
+        # 1 x 1 x 2048
+        x = x.view(x.size(0), -1)
+        # 2048
+        x = self.fc(x)
+        # 1000 (num_classes)
+
+        # if self.training and self.aux_logits:
+        #     return x, aux
+
+        return x
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 95965
+	len(valid_loadernum_iters)   = 69
+	batch_size  = 128
+	iter_accum  = 4
+	batch_size*iter_accum  = 512
+
+def train_augment(image):
+
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.06,  0.06],
+                scale_limit  = [0.9, 1.2],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image):
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+
+--- [START 2017-10-10 22:42:54] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1507646574
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/excited-inception3-180-02b
+	pretrained_file    = /home/ck/project/results/inception3-180-02a/checkpoint/00049000_model.pth
+	initial_checkpoint = /home/ck/project/results/excited-inception3-180-02a/checkpoint/00012000_model.pth
+
+** net setting **
+<class 'net.model.cdiscount.excited_inception_v3.SEInception3'>
+
+
+SEInception3 (
+  (Conv2d_1a_3x3): BasicConv2d (
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_2a_3x3): BasicConv2d (
+    (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_2b_3x3): BasicConv2d (
+    (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_3b_1x1): BasicConv2d (
+    (conv): Conv2d(64, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(80, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_4a_3x3): BasicConv2d (
+    (conv): Conv2d(80, 192, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Mixed_5b): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (192 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 192)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_5c): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (256 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 256)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_5d): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (288 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 288)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6a): InceptionB (
+    (branch3x3): BasicConv2d (
+      (conv): Conv2d(288, 384, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (288 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 288)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6b): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(128, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(128, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6c): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6d): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6e): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7a): InceptionD (
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2): BasicConv2d (
+      (conv): Conv2d(192, 320, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_4): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7b): InceptionE (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(1280, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(1280, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(1280, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(1280, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (1280 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 1280)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7c): InceptionE (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(2048, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(2048, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(2048, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(2048, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (2048 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 2048)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (fc): Linear (2048 -> 5270)
+)
+    def __init__(self, in_shape=(3,128,128), num_classes=1000 ):
+        super(SEInception3, self).__init__()
+        in_channels, height, width = in_shape
+        self.num_classes=num_classes
+        assert(in_channels==3)
+
+        # self.aux_logits = aux_logits
+        # self.transform_input = transform_input
+        self.Conv2d_1a_3x3 = BasicConv2d(in_channels, 32, kernel_size=3, stride=2)
+        self.Conv2d_2a_3x3 = BasicConv2d(32, 32, kernel_size=3)
+        self.Conv2d_2b_3x3 = BasicConv2d(32, 64, kernel_size=3, padding=1)
+        self.Conv2d_3b_1x1 = BasicConv2d(64, 80, kernel_size=1)
+        self.Conv2d_4a_3x3 = BasicConv2d(80, 192, kernel_size=3)
+        self.Mixed_5b = InceptionA(192, pool_features=32)
+        self.Mixed_5c = InceptionA(256, pool_features=64)
+        self.Mixed_5d = InceptionA(288, pool_features=64)
+        self.Mixed_6a = InceptionB(288)
+        self.Mixed_6b = InceptionC(768, channels_7x7=128)
+        self.Mixed_6c = InceptionC(768, channels_7x7=160)
+        self.Mixed_6d = InceptionC(768, channels_7x7=160)
+        self.Mixed_6e = InceptionC(768, channels_7x7=192)
+        # if aux_logits:
+        #     self.AuxLogits = InceptionAux(768, num_classes)
+        self.Mixed_7a = InceptionD(768)
+        self.Mixed_7b = InceptionE(1280)
+        self.Mixed_7c = InceptionE(2048)
+
+        ##------------------------------------------------------------
+        ## add se
+        self.Mixed_5b.add_module("SELayer", SELayer(192))
+        self.Mixed_5c.add_module("SELayer", SELayer(256))
+        self.Mixed_5d.add_module("SELayer", SELayer(288))
+        self.Mixed_6a.add_module("SELayer", SELayer(288))
+        self.Mixed_6b.add_module("SELayer", SELayer(768))
+        self.Mixed_6c.add_module("SELayer", SELayer(768))
+        self.Mixed_6d.add_module("SELayer", SELayer(768))
+        self.Mixed_6e.add_module("SELayer", SELayer(768))
+        self.Mixed_7a.add_module("SELayer", SELayer(768))
+        self.Mixed_7b.add_module("SELayer", SELayer(1280))
+        self.Mixed_7c.add_module("SELayer", SELayer(2048))
+
+        ##------------------------------------------------------------
+        self.fc = nn.Linear(2048, num_classes)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d) or isinstance(m, nn.Linear):
+                import scipy.stats as stats
+                stddev = m.stddev if hasattr(m, 'stddev') else 0.1
+                X = stats.truncnorm(-2, 2, scale=stddev)
+                values = torch.Tensor(X.rvs(m.weight.data.numel()))
+                values = values.view(m.weight.data.size())
+                m.weight.data.copy_(values)
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    def forward(self, x):
+
+        # if self.transform_input:
+        #     x = x.clone()
+        #     x[:, 0] = x[:, 0] * (0.229 / 0.5) + (0.485 - 0.5) / 0.5
+        #     x[:, 1] = x[:, 1] * (0.224 / 0.5) + (0.456 - 0.5) / 0.5
+        #     x[:, 2] = x[:, 2] * (0.225 / 0.5) + (0.406 - 0.5) / 0.5
+
+
+        # 299 x 299 x 3
+        x = self.Conv2d_1a_3x3(x)
+        # 149 x 149 x 32
+        x = self.Conv2d_2a_3x3(x)
+        # 147 x 147 x 32
+        x = self.Conv2d_2b_3x3(x)
+        # 147 x 147 x 64
+        x = F.max_pool2d(x, kernel_size=3, stride=2)
+        # 73 x 73 x 64
+        x = self.Conv2d_3b_1x1(x)
+        # 73 x 73 x 80
+        x = self.Conv2d_4a_3x3(x)
+        # 71 x 71 x 192
+        x = F.max_pool2d(x, kernel_size=3, stride=2)
+        # 35 x 35 x 192
+        x = self.Mixed_5b(x)
+        # 35 x 35 x 256
+        x = self.Mixed_5c(x)
+        # 35 x 35 x 288
+        x = self.Mixed_5d(x)
+        # 35 x 35 x 288
+        x = self.Mixed_6a(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6b(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6c(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6d(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6e(x)
+        # 17 x 17 x 768
+
+        # if self.training and self.aux_logits:
+        #     aux = self.AuxLogits(x)
+
+        # 17 x 17 x 768
+        x = self.Mixed_7a(x)
+        # 8 x 8 x 1280
+        x = self.Mixed_7b(x)
+        # 8 x 8 x 2048
+        x = self.Mixed_7c(x)
+        # 8 x 8 x 2048
+
+        #x = F.avg_pool2d(x, kernel_size=8)
+        x = F.adaptive_avg_pool2d(x, output_size=1)
+
+        # 1 x 1 x 2048
+        #x = F.dropout(x, training=self.training)
+        # 1 x 1 x 2048
+        x = x.view(x.size(0), -1)
+        # 2048
+        x = self.fc(x)
+        # 1000 (num_classes)
+
+        # if self.training and self.aux_logits:
+        #     return x, aux
+
+        return x
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 95965
+	len(valid_loadernum_iters)   = 69
+	batch_size  = 128
+	iter_accum  = 4
+	batch_size*iter_accum  = 512
+
+def train_augment(image):
+
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.06,  0.06],
+                scale_limit  = [0.9, 1.2],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image):
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7fd11593e160>
+ LR=Step Learning Rates
+rates=[' 0.0010']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000   12.0 k   0.50  | 1.5855  0.6585 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.0010   13.0 k   0.54  | 1.5313  0.6692 | 1.4568  0.6780 | 1.3949  0.6797 |    25 min 
+0.0010   14.0 k   0.58  | 1.5153  0.6714 | 1.3922  0.6911 | 1.5171  0.6953 |    49 min 
+0.0010   15.0 k   0.63  | 1.5077  0.6741 | 1.3637  0.6954 | 1.2792  0.7578 |    73 min 
+0.0010   16.0 k   0.67  | 1.5030  0.6775 | 1.3693  0.6894 | 1.6495  0.6641 |    96 min 
+0.0010   17.0 k   0.71  | 1.4987  0.6762 | 1.3598  0.6892 | 1.2411  0.7188 |   120 min 
+0.0010   18.0 k   0.75  | 1.4988  0.6765 | 1.3920  0.6895 | 1.3082  0.7031 |   143 min 
+0.0010   19.0 k   0.79  | 1.4885  0.6784 | 1.3876  0.6893 | 1.5126  0.6953 |   166 min 
+0.0010   20.0 k   0.83  | 1.4814  0.6808 | 1.3763  0.6920 | 1.5491  0.6797 |   189 min 
+
+--- [START 2017-10-11 01:57:26] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1507658245
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/excited-inception3-180-02b
+	pretrained_file    = /home/ck/project/results/inception3-180-02a/checkpoint/00049000_model.pth
+	initial_checkpoint = /home/ck/project/results/excited-inception3-180-02b/checkpoint/00020000_model.pth
+
+** net setting **
+<class 'net.model.cdiscount.excited_inception_v3.SEInception3'>
+
+
+SEInception3 (
+  (Conv2d_1a_3x3): BasicConv2d (
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_2a_3x3): BasicConv2d (
+    (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_2b_3x3): BasicConv2d (
+    (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_3b_1x1): BasicConv2d (
+    (conv): Conv2d(64, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(80, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_4a_3x3): BasicConv2d (
+    (conv): Conv2d(80, 192, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Mixed_5b): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (192 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 192)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_5c): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (256 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 256)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_5d): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (288 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 288)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6a): InceptionB (
+    (branch3x3): BasicConv2d (
+      (conv): Conv2d(288, 384, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (288 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 288)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6b): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(128, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(128, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6c): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6d): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6e): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7a): InceptionD (
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2): BasicConv2d (
+      (conv): Conv2d(192, 320, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_4): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7b): InceptionE (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(1280, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(1280, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(1280, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(1280, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (1280 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 1280)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7c): InceptionE (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(2048, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(2048, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(2048, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(2048, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (2048 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 2048)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (fc): Linear (2048 -> 5270)
+)
+    def __init__(self, in_shape=(3,128,128), num_classes=1000 ):
+        super(SEInception3, self).__init__()
+        in_channels, height, width = in_shape
+        self.num_classes=num_classes
+        assert(in_channels==3)
+
+        # self.aux_logits = aux_logits
+        # self.transform_input = transform_input
+        self.Conv2d_1a_3x3 = BasicConv2d(in_channels, 32, kernel_size=3, stride=2)
+        self.Conv2d_2a_3x3 = BasicConv2d(32, 32, kernel_size=3)
+        self.Conv2d_2b_3x3 = BasicConv2d(32, 64, kernel_size=3, padding=1)
+        self.Conv2d_3b_1x1 = BasicConv2d(64, 80, kernel_size=1)
+        self.Conv2d_4a_3x3 = BasicConv2d(80, 192, kernel_size=3)
+        self.Mixed_5b = InceptionA(192, pool_features=32)
+        self.Mixed_5c = InceptionA(256, pool_features=64)
+        self.Mixed_5d = InceptionA(288, pool_features=64)
+        self.Mixed_6a = InceptionB(288)
+        self.Mixed_6b = InceptionC(768, channels_7x7=128)
+        self.Mixed_6c = InceptionC(768, channels_7x7=160)
+        self.Mixed_6d = InceptionC(768, channels_7x7=160)
+        self.Mixed_6e = InceptionC(768, channels_7x7=192)
+        # if aux_logits:
+        #     self.AuxLogits = InceptionAux(768, num_classes)
+        self.Mixed_7a = InceptionD(768)
+        self.Mixed_7b = InceptionE(1280)
+        self.Mixed_7c = InceptionE(2048)
+
+        ##------------------------------------------------------------
+        ## add se
+        self.Mixed_5b.add_module("SELayer", SELayer(192))
+        self.Mixed_5c.add_module("SELayer", SELayer(256))
+        self.Mixed_5d.add_module("SELayer", SELayer(288))
+        self.Mixed_6a.add_module("SELayer", SELayer(288))
+        self.Mixed_6b.add_module("SELayer", SELayer(768))
+        self.Mixed_6c.add_module("SELayer", SELayer(768))
+        self.Mixed_6d.add_module("SELayer", SELayer(768))
+        self.Mixed_6e.add_module("SELayer", SELayer(768))
+        self.Mixed_7a.add_module("SELayer", SELayer(768))
+        self.Mixed_7b.add_module("SELayer", SELayer(1280))
+        self.Mixed_7c.add_module("SELayer", SELayer(2048))
+
+        ##------------------------------------------------------------
+        self.fc = nn.Linear(2048, num_classes)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d) or isinstance(m, nn.Linear):
+                import scipy.stats as stats
+                stddev = m.stddev if hasattr(m, 'stddev') else 0.1
+                X = stats.truncnorm(-2, 2, scale=stddev)
+                values = torch.Tensor(X.rvs(m.weight.data.numel()))
+                values = values.view(m.weight.data.size())
+                m.weight.data.copy_(values)
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    def forward(self, x):
+
+        # if self.transform_input:
+        #     x = x.clone()
+        #     x[:, 0] = x[:, 0] * (0.229 / 0.5) + (0.485 - 0.5) / 0.5
+        #     x[:, 1] = x[:, 1] * (0.224 / 0.5) + (0.456 - 0.5) / 0.5
+        #     x[:, 2] = x[:, 2] * (0.225 / 0.5) + (0.406 - 0.5) / 0.5
+
+
+        # 299 x 299 x 3
+        x = self.Conv2d_1a_3x3(x)
+        # 149 x 149 x 32
+        x = self.Conv2d_2a_3x3(x)
+        # 147 x 147 x 32
+        x = self.Conv2d_2b_3x3(x)
+        # 147 x 147 x 64
+        x = F.max_pool2d(x, kernel_size=3, stride=2)
+        # 73 x 73 x 64
+        x = self.Conv2d_3b_1x1(x)
+        # 73 x 73 x 80
+        x = self.Conv2d_4a_3x3(x)
+        # 71 x 71 x 192
+        x = F.max_pool2d(x, kernel_size=3, stride=2)
+        # 35 x 35 x 192
+        x = self.Mixed_5b(x)
+        # 35 x 35 x 256
+        x = self.Mixed_5c(x)
+        # 35 x 35 x 288
+        x = self.Mixed_5d(x)
+        # 35 x 35 x 288
+        x = self.Mixed_6a(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6b(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6c(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6d(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6e(x)
+        # 17 x 17 x 768
+
+        # if self.training and self.aux_logits:
+        #     aux = self.AuxLogits(x)
+
+        # 17 x 17 x 768
+        x = self.Mixed_7a(x)
+        # 8 x 8 x 1280
+        x = self.Mixed_7b(x)
+        # 8 x 8 x 2048
+        x = self.Mixed_7c(x)
+        # 8 x 8 x 2048
+
+        #x = F.avg_pool2d(x, kernel_size=8)
+        x = F.adaptive_avg_pool2d(x, output_size=1)
+
+        # 1 x 1 x 2048
+        #x = F.dropout(x, training=self.training)
+        # 1 x 1 x 2048
+        x = x.view(x.size(0), -1)
+        # 2048
+        x = self.fc(x)
+        # 1000 (num_classes)
+
+        # if self.training and self.aux_logits:
+        #     return x, aux
+
+        return x
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 95965
+	len(valid_loadernum_iters)   = 69
+	batch_size  = 128
+	iter_accum  = 4
+	batch_size*iter_accum  = 512
+
+def train_augment(image):
+
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.06,  0.06],
+                scale_limit  = [0.9, 1.2],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image):
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f887185d390>
+ LR=Step Learning Rates
+rates=[' 0.0010']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000   20.0 k   0.83  | 1.4814  0.6808 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.0010   21.0 k   0.88  | 1.4812  0.6795 | 1.3898  0.6834 | 1.4901  0.6797 |    23 min 
+0.0010   22.0 k   0.92  | 1.4806  0.6820 | 1.3663  0.6970 | 1.0048  0.7578 |    47 min 
+0.0010   23.0 k   0.96  | 1.4817  0.6804 | 1.3617  0.6958 | 1.4543  0.6797 |    70 min 
+0.0010   24.0 k   1.00  | 1.4814  0.6821 | 1.3430  0.6920 | 1.3341  0.7266 |    94 min 
+0.0010   25.0 k   1.04  | 1.4793  0.6800 | 1.3231  0.7011 | 1.5160  0.6875 |   117 min 
+0.0010   26.0 k   1.08  | 1.4777  0.6814 | 1.3373  0.6988 | 1.3374  0.7109 |   140 min 
+0.0010   27.0 k   1.13  | 1.4781  0.6816 | 1.3542  0.7003 | 1.3096  0.6797 |   164 min 
+0.0010   28.0 k   1.17  | 1.4787  0.6809 | 1.3522  0.6940 | 1.1765  0.7422 |   187 min 
+0.0010   29.0 k   1.21  | 1.4766  0.6814 | 1.3453  0.6979 | 1.0310  0.7656 |   210 min 
+
+--- [START 2017-10-11 05:30:28] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1507671027
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/excited-inception3-180-02b
+	pretrained_file    = /home/ck/project/results/inception3-180-02a/checkpoint/00049000_model.pth
+	initial_checkpoint = /home/ck/project/results/excited-inception3-180-02b/checkpoint/00029000_model.pth
+
+** net setting **
+<class 'net.model.cdiscount.excited_inception_v3.SEInception3'>
+
+
+SEInception3 (
+  (Conv2d_1a_3x3): BasicConv2d (
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_2a_3x3): BasicConv2d (
+    (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_2b_3x3): BasicConv2d (
+    (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_3b_1x1): BasicConv2d (
+    (conv): Conv2d(64, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(80, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Conv2d_4a_3x3): BasicConv2d (
+    (conv): Conv2d(80, 192, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+  )
+  (Mixed_5b): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (192 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 192)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_5c): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (256 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 256)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_5d): InceptionA (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_1): BasicConv2d (
+      (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch5x5_2): BasicConv2d (
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (288 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 288)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6a): InceptionB (
+    (branch3x3): BasicConv2d (
+      (conv): Conv2d(288, 384, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3): BasicConv2d (
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (288 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 288)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6b): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(128, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(128, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6c): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6d): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_6e): InceptionC (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_4): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7dbl_5): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7a): InceptionD (
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2): BasicConv2d (
+      (conv): Conv2d(192, 320, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_1): BasicConv2d (
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_2): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_3): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch7x7x3_4): BasicConv2d (
+      (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (768 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 768)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7b): InceptionE (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(1280, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(1280, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(1280, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(1280, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (1280 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 1280)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (Mixed_7c): InceptionE (
+    (branch1x1): BasicConv2d (
+      (conv): Conv2d(2048, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_1): BasicConv2d (
+      (conv): Conv2d(2048, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3_2b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_1): BasicConv2d (
+      (conv): Conv2d(2048, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_2): BasicConv2d (
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d (
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True)
+    )
+    (branch_pool): BasicConv2d (
+      (conv): Conv2d(2048, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True)
+    )
+    (SELayer): SELayer (
+      (avg_pool): AdaptiveAvgPool2d (output_size=1)
+      (fc): Sequential (
+        (0): Linear (2048 -> 16)
+        (1): ReLU (inplace)
+        (2): Linear (16 -> 2048)
+        (3): Sigmoid ()
+      )
+    )
+  )
+  (fc): Linear (2048 -> 5270)
+)
+    def __init__(self, in_shape=(3,128,128), num_classes=1000 ):
+        super(SEInception3, self).__init__()
+        in_channels, height, width = in_shape
+        self.num_classes=num_classes
+        assert(in_channels==3)
+
+        # self.aux_logits = aux_logits
+        # self.transform_input = transform_input
+        self.Conv2d_1a_3x3 = BasicConv2d(in_channels, 32, kernel_size=3, stride=2)
+        self.Conv2d_2a_3x3 = BasicConv2d(32, 32, kernel_size=3)
+        self.Conv2d_2b_3x3 = BasicConv2d(32, 64, kernel_size=3, padding=1)
+        self.Conv2d_3b_1x1 = BasicConv2d(64, 80, kernel_size=1)
+        self.Conv2d_4a_3x3 = BasicConv2d(80, 192, kernel_size=3)
+        self.Mixed_5b = InceptionA(192, pool_features=32)
+        self.Mixed_5c = InceptionA(256, pool_features=64)
+        self.Mixed_5d = InceptionA(288, pool_features=64)
+        self.Mixed_6a = InceptionB(288)
+        self.Mixed_6b = InceptionC(768, channels_7x7=128)
+        self.Mixed_6c = InceptionC(768, channels_7x7=160)
+        self.Mixed_6d = InceptionC(768, channels_7x7=160)
+        self.Mixed_6e = InceptionC(768, channels_7x7=192)
+        # if aux_logits:
+        #     self.AuxLogits = InceptionAux(768, num_classes)
+        self.Mixed_7a = InceptionD(768)
+        self.Mixed_7b = InceptionE(1280)
+        self.Mixed_7c = InceptionE(2048)
+
+        ##------------------------------------------------------------
+        ## add se
+        self.Mixed_5b.add_module("SELayer", SELayer(192))
+        self.Mixed_5c.add_module("SELayer", SELayer(256))
+        self.Mixed_5d.add_module("SELayer", SELayer(288))
+        self.Mixed_6a.add_module("SELayer", SELayer(288))
+        self.Mixed_6b.add_module("SELayer", SELayer(768))
+        self.Mixed_6c.add_module("SELayer", SELayer(768))
+        self.Mixed_6d.add_module("SELayer", SELayer(768))
+        self.Mixed_6e.add_module("SELayer", SELayer(768))
+        self.Mixed_7a.add_module("SELayer", SELayer(768))
+        self.Mixed_7b.add_module("SELayer", SELayer(1280))
+        self.Mixed_7c.add_module("SELayer", SELayer(2048))
+
+        ##------------------------------------------------------------
+        self.fc = nn.Linear(2048, num_classes)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d) or isinstance(m, nn.Linear):
+                import scipy.stats as stats
+                stddev = m.stddev if hasattr(m, 'stddev') else 0.1
+                X = stats.truncnorm(-2, 2, scale=stddev)
+                values = torch.Tensor(X.rvs(m.weight.data.numel()))
+                values = values.view(m.weight.data.size())
+                m.weight.data.copy_(values)
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    def forward(self, x):
+
+        # if self.transform_input:
+        #     x = x.clone()
+        #     x[:, 0] = x[:, 0] * (0.229 / 0.5) + (0.485 - 0.5) / 0.5
+        #     x[:, 1] = x[:, 1] * (0.224 / 0.5) + (0.456 - 0.5) / 0.5
+        #     x[:, 2] = x[:, 2] * (0.225 / 0.5) + (0.406 - 0.5) / 0.5
+
+
+        # 299 x 299 x 3
+        x = self.Conv2d_1a_3x3(x)
+        # 149 x 149 x 32
+        x = self.Conv2d_2a_3x3(x)
+        # 147 x 147 x 32
+        x = self.Conv2d_2b_3x3(x)
+        # 147 x 147 x 64
+        x = F.max_pool2d(x, kernel_size=3, stride=2)
+        # 73 x 73 x 64
+        x = self.Conv2d_3b_1x1(x)
+        # 73 x 73 x 80
+        x = self.Conv2d_4a_3x3(x)
+        # 71 x 71 x 192
+        x = F.max_pool2d(x, kernel_size=3, stride=2)
+        # 35 x 35 x 192
+        x = self.Mixed_5b(x)
+        # 35 x 35 x 256
+        x = self.Mixed_5c(x)
+        # 35 x 35 x 288
+        x = self.Mixed_5d(x)
+        # 35 x 35 x 288
+        x = self.Mixed_6a(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6b(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6c(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6d(x)
+        # 17 x 17 x 768
+        x = self.Mixed_6e(x)
+        # 17 x 17 x 768
+
+        # if self.training and self.aux_logits:
+        #     aux = self.AuxLogits(x)
+
+        # 17 x 17 x 768
+        x = self.Mixed_7a(x)
+        # 8 x 8 x 1280
+        x = self.Mixed_7b(x)
+        # 8 x 8 x 2048
+        x = self.Mixed_7c(x)
+        # 8 x 8 x 2048
+
+        #x = F.avg_pool2d(x, kernel_size=8)
+        x = F.adaptive_avg_pool2d(x, output_size=1)
+
+        # 1 x 1 x 2048
+        #x = F.dropout(x, training=self.training)
+        # 1 x 1 x 2048
+        x = x.view(x.size(0), -1)
+        # 2048
+        x = self.fc(x)
+        # 1000 (num_classes)
+
+        # if self.training and self.aux_logits:
+        #     return x, aux
+
+        return x
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 95965
+	len(valid_loadernum_iters)   = 69
+	batch_size  = 128
+	iter_accum  = 4
+	batch_size*iter_accum  = 512
+
+def train_augment(image):
+
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.06,  0.06],
+                scale_limit  = [0.9, 1.2],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image):
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f962f950160>
+ LR=Step Learning Rates
+rates=[' 0.0001']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000   29.0 k   1.21  | 1.4766  0.6814 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.0001   30.0 k   1.25  | 1.4784  0.6810 | 1.3518  0.6997 | 1.1707  0.6719 |    23 min 
+0.0001   31.0 k   1.29  | 1.4756  0.6816 | 1.3432  0.6986 | 1.1471  0.6875 |    46 min 
+0.0001   32.0 k   1.33  | 1.4785  0.6810 | 1.3796  0.6933 | 1.5328  0.6797 |    68 min 
+0.0001   33.0 k   1.38  | 1.4755  0.6821 | 1.3517  0.6986 | 1.2954  0.7266 |    90 min 
+0.0001   34.0 k   1.42  | 1.4756  0.6817 | 1.3764  0.6916 | 1.5400  0.6797 |   114 min 
+0.0001   35.0 k   1.46  | 1.4761  0.6824 | 1.3877  0.6949 | 1.3141  0.7266 |   137 min 
+0.0001   36.0 k   1.50  | 1.4759  0.6815 | 1.3330  0.6921 | 1.2510  0.7031 |   161 min 
+0.0001   37.0 k   1.54  | 1.4774  0.6814 | 1.3262  0.7005 | 1.1650  0.7266 |   185 min 
+0.0001   38.0 k   1.58  | 1.4748  0.6817 | 1.3308  0.6998 | 1.5212  0.6562 |   209 min 
+0.0001   39.0 k   1.63  | 1.4759  0.6820 | 1.3524  0.6972 | 1.4274  0.6953 |   233 min 

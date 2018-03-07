@@ -1,0 +1,80 @@
+
+--- [START 2017-11-13_12-00-10] ----------------------------------------------------------------
+
+** cap features to [0,2] **
+** some experiment setting **
+	SEED         = 235202
+	PROJECT_PATH = /root/share/project/kaggle/cdiscount/build/dummy-02
+	DIM          = 8192
+	out_dir      = /root/share/project/kaggle/cdiscount/results/gated-combined4-00c
+
+** net setting **
+	initial_checkpoint = /root/share/project/kaggle/cdiscount/results/gated-combined4-00b/checkpoint/00079000_model.pth
+<class 'net.model.cdiscount.fcnet3.FcNet3'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_50000
+	len(train_dataset)  = 7019896
+	len(valid_dataset)  = 50000
+	len(train_loader)   = 1713
+	len(valid_loader)   = 13
+	batch_size  = 4096
+	iter_accum  = 1
+	batch_size*iter_accum  = 4096
+
+
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f4b38edb630>
+ momentum=0.900000
+ LR=None
+
+ products_per_epoch = 7019896
+
+   rate   iter_k   epoch  num_m| valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+--------------------------------------------------------------------------------------------
+0.0000   79.0 k  46.10  1294.3 | 1.4331  0.7699 | 0.0000  0.0000 | 0.0000  0.0000 |  0 hr 00 min 
+0.0001   79.5 k  46.39  1302.5 | 1.5303  0.7688 | 0.1358  0.9574 | 0.1360  0.9575 |  0 hr 04 min 
+0.0001   80.0 k  46.68  1310.7 | 1.5396  0.7688 | 0.1361  0.9574 | 0.1403  0.9597 |  0 hr 09 min 
+
+--- [START 2017-11-13_12-13-28] ----------------------------------------------------------------
+
+** cap features to [0,2] **
+** some experiment setting **
+	SEED         = 235202
+	PROJECT_PATH = /root/share/project/kaggle/cdiscount/build/dummy-02
+	DIM          = 8192
+	out_dir      = /root/share/project/kaggle/cdiscount/results/gated-combined4-00c
+
+** net setting **
+	initial_checkpoint = /root/share/project/kaggle/cdiscount/results/gated-combined4-00b/checkpoint/00079000_model.pth
+<class 'net.model.cdiscount.fcnet3.FcNet3'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_50000
+	len(train_dataset)  = 7019896
+	len(valid_dataset)  = 50000
+	len(train_loader)   = 1713
+	len(valid_loader)   = 13
+	batch_size  = 4096
+	iter_accum  = 1
+	batch_size*iter_accum  = 4096
+
+
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7fcc5a6a36d8>
+ momentum=0.900000
+ LR=None
+
+ products_per_epoch = 7019896
+
+   rate   iter_k   epoch  num_m| valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+--------------------------------------------------------------------------------------------
+0.0000   79.0 k  46.10  1294.3 | 1.4331  0.7699 | 0.0000  0.0000 | 0.0000  0.0000 |  0 hr 00 min 
+0.0001   79.5 k  46.39  1302.5 | 1.3950  0.7699 | 0.2602  0.9132 | 0.2523  0.9194 |  0 hr 05 min 
+0.0001   80.0 k  46.68  1310.7 | 1.3883  0.7696 | 0.2618  0.9140 | 0.2688  0.9172 |  0 hr 09 min 
+0.0001   80.5 k  46.97  1318.9 | 1.3857  0.7695 | 0.2615  0.9137 | 0.2589  0.9124 |  0 hr 14 min 
+0.0001   81.0 k  47.26  1327.1 | 1.3842  0.7695 | 0.2572  0.9157 | 0.2625  0.9109 |  0 hr 19 min 

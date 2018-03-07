@@ -1,0 +1,136 @@
+
+--- [START 2017-10-16 10:19:23] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1508120362
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/xception-180-01b
+
+** net setting **
+<class 'net.model.cdiscount.xception.Xception'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 191931
+	len(valid_loader)   = 138
+	batch_size  = 64
+	iter_accum  = 4
+	batch_size*iter_accum  = 256
+
+def train_augment(image):
+
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.06,  0.06],
+                scale_limit  = [0.9, 1.1],
+                #rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image):
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+	loading @ initial_checkpoint = /home/ck/project/results/xception-180-01a/checkpoint/00140000_model.pth
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f791e4ac8d0>
+ momentum=0.250000
+ LR=Step Learning Rates
+rates=[' 0.0010']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000  140.0 k   2.92  | 1.5162  0.6735 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.0010  141.0 k   2.94  | 1.5170  0.6735 | 2.4732  0.6764 | 2.4767  0.6562 |    35 min 
+0.0010  142.0 k   2.96  | 1.5184  0.6718 | 2.3101  0.6879 | 2.2094  0.6875 |    69 min 
+0.0010  143.0 k   2.98  | 1.5205  0.6705 | 2.3042  0.6975 | 2.5457  0.7031 |   104 min 
+0.0010  144.0 k   3.00  | 1.5204  0.6710 | 2.4089  0.6809 | 1.8093  0.7344 |   139 min 
+0.0010  145.0 k   3.02  | 1.5192  0.6715 | 2.3368  0.6832 | 1.8869  0.7188 |   173 min 
+0.0010  146.0 k   3.04  | 1.5206  0.6717 | 2.2434  0.6965 | 2.1751  0.6719 |   207 min 
+0.0010  147.0 k   3.06  | 1.5208  0.6697 | 2.2684  0.6941 | 3.2664  0.6094 |   241 min 
+0.0010  148.0 k   3.08  | 1.5204  0.6693 | 2.3990  0.6857 | 1.8130  0.7656 |   276 min 
+0.0010  149.0 k   3.11  | 1.5225  0.6719 | 2.3199  0.6959 | 2.0100  0.7500 |   310 min 
+0.0010  150.0 k   3.13  | 1.5207  0.6736 | 2.2789  0.6920 | 1.8628  0.7188 |   343 min 
+0.0010  151.0 k   3.15  | 1.5217  0.6715 | 2.2937  0.6896 | 1.5862  0.7031 |   377 min 
+0.0010  152.0 k   3.17  | 1.5195  0.6734 | 2.3151  0.6883 | 2.6770  0.7031 |   411 min 
+0.0010  153.0 k   3.19  | 1.5195  0.6725 | 2.2976  0.6873 | 2.1855  0.7031 |   446 min 
+0.0010  154.0 k   3.21  | 1.5187  0.6733 | 2.2372  0.7014 | 2.0854  0.7188 |   481 min 
+0.0010  155.0 k   3.23  | 1.5202  0.6718 | 2.3772  0.6777 | 2.8332  0.7031 |   517 min 
+
+--- [START 2017-10-16 19:20:10] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1508152810
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/xception-180-01b
+
+** net setting **
+<class 'net.model.cdiscount.xception.Xception'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 191931
+	len(valid_loader)   = 138
+	batch_size  = 64
+	iter_accum  = 4
+	batch_size*iter_accum  = 256
+
+def train_augment(image):
+
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.06,  0.06],
+                scale_limit  = [0.9, 1.1],
+                #rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image):
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+	loading @ initial_checkpoint = /home/ck/project/results/xception-180-01b/checkpoint/00155000_model.pth
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f7470af8898>
+ momentum=0.250000
+ LR=Step Learning Rates
+rates=[' 0.0001']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000  155.0 k   3.23  | 1.5202  0.6718 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.0001  156.0 k   3.25  | 1.5213  0.6735 | 2.3857  0.6838 | 3.1494  0.5938 |    35 min 
+0.0001  157.0 k   3.27  | 1.5193  0.6732 | 2.2851  0.6982 | 3.0292  0.6406 |    70 min 
+0.0001  158.0 k   3.29  | 1.5187  0.6741 | 2.2874  0.6918 | 3.0767  0.5938 |   105 min 

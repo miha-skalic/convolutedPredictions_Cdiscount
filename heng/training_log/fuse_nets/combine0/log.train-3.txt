@@ -1,0 +1,46 @@
+
+--- [START 2017-11-13_11-14-58] ----------------------------------------------------------------
+
+** cap features to [0,2] **
+** some experiment setting **
+	SEED         = 235202
+	PROJECT_PATH = /root/share/project/kaggle/cdiscount/build/dummy-02
+	DIM          = 8192
+	out_dir      = /root/share/project/kaggle/cdiscount/results/gated-combined4-00b
+
+** net setting **
+	initial_checkpoint = /root/share/project/kaggle/cdiscount/results/gated-combined4-00a/checkpoint/00077000_model.pth
+<class 'net.model.cdiscount.fcnet3.FcNet3'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_50000
+	len(train_dataset)  = 7019896
+	len(valid_dataset)  = 50000
+	len(train_loader)   = 1713
+	len(valid_loader)   = 13
+	batch_size  = 4096
+	iter_accum  = 1
+	batch_size*iter_accum  = 4096
+
+
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f91bfca86a0>
+ momentum=0.900000
+ LR=None
+
+ products_per_epoch = 7019896
+
+   rate   iter_k   epoch  num_m| valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+--------------------------------------------------------------------------------------------
+0.0000   77.0 k  44.93  1261.6 | 1.4332  0.7693 | 0.0000  0.0000 | 0.0000  0.0000 |  0 hr 00 min 
+0.0001   77.5 k  45.22  1269.8 | 1.4335  0.7697 | 0.2174  0.9290 | 0.2162  0.9287 |  0 hr 04 min 
+0.0001   78.0 k  45.51  1278.0 | 1.4308  0.7694 | 0.2176  0.9283 | 0.2199  0.9290 |  0 hr 09 min 
+0.0001   78.5 k  45.80  1286.1 | 1.4310  0.7696 | 0.2166  0.9292 | 0.2153  0.9285 |  0 hr 14 min 
+0.0001   79.0 k  46.10  1294.3 | 1.4331  0.7699 | 0.2130  0.9305 | 0.2200  0.9304 |  0 hr 19 min 
+0.0001   79.5 k  46.39  1302.5 | 1.4379  0.7694 | 0.2133  0.9300 | 0.2029  0.9319 |  0 hr 23 min 
+0.0001   80.0 k  46.68  1310.7 | 1.4422  0.7697 | 0.2089  0.9325 | 0.2112  0.9316 |  0 hr 28 min 
+0.0001   80.5 k  46.97  1318.9 | 1.4373  0.7695 | 0.2104  0.9319 | 0.2112  0.9312 |  0 hr 33 min 
+0.0001   81.0 k  47.26  1327.1 | 1.4394  0.7692 | 0.2098  0.9314 | 0.2081  0.9338 |  0 hr 38 min 
+0.0001   81.5 k  47.55  1335.3 | 1.4403  0.7695 | 0.2142  0.9296 | 0.2283  0.9260 |  0 hr 42 min 

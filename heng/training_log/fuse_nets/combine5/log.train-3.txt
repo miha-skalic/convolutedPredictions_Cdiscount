@@ -1,0 +1,39 @@
+
+--- [START 2017-12-12_05-52-36] ----------------------------------------------------------------
+
+** cap features to [0,2] **
+** some experiment setting **
+	SEED         = 235202
+	PROJECT_PATH = /root/share/project/kaggle/cdiscount/build/dummy-03a
+	DIM          = 9472
+	out_dir      = /root/share/project/kaggle/cdiscount/results/fcnet3-dpn-seresnext-00b
+
+** net setting **
+	initial_checkpoint = /root/share/project/kaggle/cdiscount/results/fcnet3-dpn-seresnext-00a/checkpoint/00105000_model.pth
+<class 'net.model.cdiscount.fcnet3.FcNet3'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_50000
+	len(train_dataset)  = 7019896
+	len(valid_dataset)  = 50000
+	len(train_loader)   = 571
+	len(valid_loader)   = 5
+	batch_size  = 12288
+	iter_accum  = 1
+	batch_size*iter_accum  = 12288
+
+
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f2beaf666a0>
+ momentum=0.900000
+ LR=None
+
+ products_per_epoch = 7019896
+
+   rate   iter_k   epoch  num_m| valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+--------------------------------------------------------------------------------------------
+0.0000  105.0 k  61.27  1720.3 | 1.0227  0.7817 | 0.0000  0.0000 | 0.0000  0.0000 |  0 hr 00 min 
+0.0010  105.5 k  62.14  1744.9 | 1.0151  0.7818 | 0.4817  0.8543 | 0.4833  0.8531 |  0 hr 14 min 
+0.0010  106.0 k  63.02  1769.5 | 1.0161  0.7817 | 0.4856  0.8533 | 0.4770  0.8546 |  0 hr 29 min 

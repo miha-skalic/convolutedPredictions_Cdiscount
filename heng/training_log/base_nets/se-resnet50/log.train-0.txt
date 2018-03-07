@@ -1,0 +1,1278 @@
+
+--- [START 2017-10-10 17:30:08] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1507627807
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/excited-resnet50-180-00
+
+** net setting **
+<class 'net.model.cdiscount.excited_resnet50.SEResNet50'>
+
+
+SEResNet50 (
+  (layer0): Sequential (
+    (0): ConvBn2d (
+      (conv): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+    )
+    (1): ReLU (inplace)
+    (2): MaxPool2d (size=(3, 3), stride=(2, 2), padding=(1, 1), dilation=(1, 1))
+  )
+  (layer1): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (layer2): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (3): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (layer3): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (3): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (4): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (5): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (layer4): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(2048, 128, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(128, 2048, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(2048, 128, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(128, 2048, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(2048, 128, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(128, 2048, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (fc): Linear (2048 -> 5270)
+)
+    def __init__(self, in_shape=(3,128,128), num_classes=5000 ):
+
+        super(SEResNet50, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.layer0 = nn.Sequential(
+            ConvBn2d(in_channels, 64, kernel_size=7, stride=2, padding=3),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2, padding=1),
+            #nn.MaxPool2d(kernel_size=2, stride=2, padding=0),
+        )
+        self.layer1 = make_layer(SEBottleneck,   64,  64, 4, 16, num_blocks=3, stride=1)  #out =  64*4 =  256
+        self.layer2 = make_layer(SEBottleneck,  256, 128, 4, 32, num_blocks=4, stride=2)  #out = 128*4 =  512
+        self.layer3 = make_layer(SEBottleneck,  512, 256, 4, 64, num_blocks=6, stride=2)  #out = 256*4 = 1024
+        self.layer4 = make_layer(SEBottleneck, 1024, 512, 4,128, num_blocks=3, stride=2)  #out = 512*4 = 2048
+        self.fc  = nn.Linear(2048, num_classes)
+
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, math.sqrt(2. / n))
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    def forward(self, x):
+        x = self.layer0(x)
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+
+        x = F.adaptive_avg_pool2d(x, output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc (x)
+        return x #logits
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 95965
+	len(valid_loadernum_iters)   = 69
+	batch_size  = 128
+	iter_accum  = 4
+	batch_size*iter_accum  = 512
+
+def train_augment(image): 
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.06,  0.06],
+                scale_limit  = [0.9, 1.2],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image): 
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f693a100e80>
+ LR=Step Learning Rates
+rates=[' 0.0100']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000    0.0 k   0.00  | 2.5159  0.5056 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.0100    1.0 k   0.04  | 1.8139  0.6190 | 1.7700  0.6190 | 1.7129  0.6250 |    47 min 
+0.0100    2.0 k   0.08  | 1.8226  0.6203 | 1.7716  0.6209 | 1.8583  0.5859 |    93 min 
+0.0100    3.0 k   0.13  | 1.7925  0.6237 | 1.7608  0.6176 | 1.6861  0.6641 |   140 min 
+0.0100    4.0 k   0.17  | 1.8177  0.6183 | 1.7403  0.6199 | 1.6249  0.6641 |   187 min 
+0.0100    5.0 k   0.21  | 1.7883  0.6271 | 1.7101  0.6325 | 1.5948  0.6250 |   233 min 
+0.0100    6.0 k   0.25  | 1.7592  0.6275 | 1.7179  0.6282 | 1.5067  0.6641 |   280 min 
+0.0100    7.0 k   0.29  | 1.7387  0.6305 | 1.6863  0.6284 | 1.7452  0.6172 |   326 min 
+0.0100    8.0 k   0.33  | 1.7684  0.6319 | 1.6872  0.6354 | 1.7958  0.6016 |   373 min 
+
+--- [START 2017-10-11 00:11:21] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1507651881
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/excited-resnet50-180-00
+
+** net setting **
+<class 'net.model.cdiscount.excited_resnet50.SEResNet50'>
+
+
+SEResNet50 (
+  (layer0): Sequential (
+    (0): ConvBn2d (
+      (conv): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+    )
+    (1): ReLU (inplace)
+    (2): MaxPool2d (size=(3, 3), stride=(2, 2), padding=(1, 1), dilation=(1, 1))
+  )
+  (layer1): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (layer2): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (3): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (layer3): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (3): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (4): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (5): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (layer4): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(2048, 128, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(128, 2048, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(2048, 128, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(128, 2048, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(2048, 128, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(128, 2048, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (fc): Linear (2048 -> 5270)
+)
+    def __init__(self, in_shape=(3,128,128), num_classes=5000 ):
+
+        super(SEResNet50, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.layer0 = nn.Sequential(
+            ConvBn2d(in_channels, 64, kernel_size=7, stride=2, padding=3),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2, padding=1),
+            #nn.MaxPool2d(kernel_size=2, stride=2, padding=0),
+        )
+        self.layer1 = make_layer(SEBottleneck,   64,  64, 4, 16, num_blocks=3, stride=1)  #out =  64*4 =  256
+        self.layer2 = make_layer(SEBottleneck,  256, 128, 4, 32, num_blocks=4, stride=2)  #out = 128*4 =  512
+        self.layer3 = make_layer(SEBottleneck,  512, 256, 4, 64, num_blocks=6, stride=2)  #out = 256*4 = 1024
+        self.layer4 = make_layer(SEBottleneck, 1024, 512, 4,128, num_blocks=3, stride=2)  #out = 512*4 = 2048
+        self.fc  = nn.Linear(2048, num_classes)
+
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, math.sqrt(2. / n))
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    def forward(self, x):
+        x = self.layer0(x)
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+
+        x = F.adaptive_avg_pool2d(x, output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc (x)
+        return x #logits
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 95965
+	len(valid_loadernum_iters)   = 69
+	batch_size  = 128
+	iter_accum  = 4
+	batch_size*iter_accum  = 512
+
+def train_augment(image): 
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.06,  0.06],
+                scale_limit  = [0.9, 1.2],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image): 
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+
+--- [START 2017-10-11 00:17:47] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1507652267
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/excited-resnet50-180-00
+
+** net setting **
+<class 'net.model.cdiscount.excited_resnet50.SEResNet50'>
+
+
+SEResNet50 (
+  (layer0): Sequential (
+    (0): ConvBn2d (
+      (conv): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+      (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+    )
+    (1): ReLU (inplace)
+    (2): MaxPool2d (size=(3, 3), stride=(2, 2), padding=(1, 1), dilation=(1, 1))
+  )
+  (layer1): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(256, 16, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(16, 256, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (layer2): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (3): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(512, 32, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(32, 512, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (layer3): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (3): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (4): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (5): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(256, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(1024, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(1024, 64, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(64, 1024, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (layer4): Sequential (
+    (0): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(2048, 128, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(128, 2048, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (downsample): ConvBn2d (
+        (conv): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+    )
+    (1): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(2048, 128, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(128, 2048, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (2): SEBottleneck (
+      (conv_bn1): ConvBn2d (
+        (conv): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn2): ConvBn2d (
+        (conv): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(512, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (conv_bn3): ConvBn2d (
+        (conv): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(2048, eps=0.0001, momentum=0.1, affine=True)
+      )
+      (scale): SEScale (
+        (fc1): Conv2d(2048, 128, kernel_size=(1, 1), stride=(1, 1))
+        (fc2): Conv2d(128, 2048, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (fc): Linear (2048 -> 5270)
+)
+    def __init__(self, in_shape=(3,128,128), num_classes=5000 ):
+
+        super(SEResNet50, self).__init__()
+        in_channels, height, width = in_shape
+
+        self.layer0 = nn.Sequential(
+            ConvBn2d(in_channels, 64, kernel_size=7, stride=2, padding=3),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2, padding=1),
+            #nn.MaxPool2d(kernel_size=2, stride=2, padding=0),
+        )
+        self.layer1 = make_layer(SEBottleneck,   64,  64, 4, 16, num_blocks=3, stride=1)  #out =  64*4 =  256
+        self.layer2 = make_layer(SEBottleneck,  256, 128, 4, 32, num_blocks=4, stride=2)  #out = 128*4 =  512
+        self.layer3 = make_layer(SEBottleneck,  512, 256, 4, 64, num_blocks=6, stride=2)  #out = 256*4 = 1024
+        self.layer4 = make_layer(SEBottleneck, 1024, 512, 4,128, num_blocks=3, stride=2)  #out = 512*4 = 2048
+        self.fc  = nn.Linear(2048, num_classes)
+
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, math.sqrt(2. / n))
+            elif isinstance(m, nn.BatchNorm2d):
+                m.weight.data.fill_(1)
+                m.bias.data.zero_()
+
+    def forward(self, x):
+        x = self.layer0(x)
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+
+        x = F.adaptive_avg_pool2d(x, output_size=1)
+        x = x.view(x.size(0), -1)
+        x = self.fc (x)
+        return x #logits
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 95965
+	len(valid_loadernum_iters)   = 69
+	batch_size  = 128
+	iter_accum  = 4
+	batch_size*iter_accum  = 512
+
+def train_augment(image): 
+    if random.random() < 0.5:
+        image = random_shift_scale_rotate(image,
+                #shift_limit  = [0, 0],
+                shift_limit  = [-0.06,  0.06],
+                scale_limit  = [0.9, 1.2],
+                rotate_limit = [-10,10],
+                aspect_limit = [1,1],
+                #size=[1,299],
+        borderMode=cv2.BORDER_REFLECT_101 , u=1)
+    else:
+        pass
+
+    # flip  random ---------
+    image = random_horizontal_flip(image, u=0.5)
+
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+def valid_augment(image): 
+    tensor = image_to_tensor_transform(image)
+    return tensor
+
+
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f290823a908>
+ LR=Step Learning Rates
+rates=[' 0.0100']
+steps=['      0']
+
+   rate   iter   epoch  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+-------------------------------------------------------------------------------------
+0.0000    8.0 k   0.33  | 1.7684  0.6319 | 0.0000  0.0000 | 0.0000  0.0000 |     0 min 
+0.0100    9.0 k   0.38  | 1.6412  0.6525 | 1.5378  0.6606 | 1.5671  0.6328 |    47 min 
+0.0100   10.0 k   0.42  | 1.6252  0.6559 | 1.5518  0.6570 | 1.4431  0.7578 |    94 min 
+0.0100   11.0 k   0.46  | 1.6170  0.6581 | 1.5383  0.6593 | 1.5924  0.6172 |   141 min 
+0.0100   12.0 k   0.50  | 1.6073  0.6566 | 1.5559  0.6542 | 1.6603  0.6562 |   187 min 
+0.0100   13.0 k   0.54  | 1.6037  0.6593 | 1.5451  0.6629 | 1.3573  0.6875 |   234 min 
+0.0100   14.0 k   0.58  | 1.5981  0.6615 | 1.5399  0.6624 | 1.3933  0.6953 |   281 min 
+0.0100   15.0 k   0.63  | 1.5893  0.6612 | 1.5081  0.6702 | 1.3633  0.6875 |   328 min 
+0.0100   16.0 k   0.67  | 1.5863  0.6623 | 1.5700  0.6605 | 1.4005  0.7109 |   374 min 
+0.0100   17.0 k   0.71  | 1.5866  0.6596 | 1.5323  0.6615 | 1.2792  0.7031 |   421 min 
+0.0100   18.0 k   0.75  | 1.5844  0.6594 | 1.5136  0.6640 | 1.6339  0.6406 |   468 min 
+0.0100   19.0 k   0.79  | 1.5788  0.6599 | 1.4870  0.6735 | 1.5456  0.6328 |   514 min 
+0.0100   20.0 k   0.83  | 1.5771  0.6629 | 1.5313  0.6659 | 1.2851  0.6719 |   561 min 
+0.0100   21.0 k   0.88  | 1.5713  0.6628 | 1.5549  0.6576 | 1.6548  0.6328 |   609 min 
+0.0100   22.0 k   0.92  | 1.5645  0.6649 | 1.5367  0.6590 | 1.3413  0.6797 |   656 min 
+0.0100   23.0 k   0.96  | 1.5667  0.6670 | 1.5110  0.6691 | 1.3882  0.6875 |   703 min 
+0.0100   24.0 k   1.00  | 1.5659  0.6629 | 1.5286  0.6645 | 1.3839  0.6562 |   749 min 
+0.0100   25.0 k   1.04  | 1.5560  0.6659 | 1.5262  0.6596 | 1.9893  0.6172 |   795 min 
+0.0100   26.0 k   1.08  | 1.5562  0.6655 | 1.5303  0.6651 | 1.2843  0.6797 |   840 min 
+0.0100   27.0 k   1.13  | 1.5562  0.6678 | 1.4931  0.6650 | 1.6938  0.6719 |   887 min 
+0.0100   28.0 k   1.17  | 1.5535  0.6691 | 1.4808  0.6732 | 1.5207  0.6641 |   933 min 
+0.0100   29.0 k   1.21  | 1.5528  0.6655 | 1.4943  0.6679 | 1.3321  0.7109 |   979 min 
+0.0100   30.0 k   1.25  | 1.5529  0.6643 | 1.4846  0.6722 | 1.1464  0.7266 |  1025 min 
+0.0100   31.0 k   1.29  | 1.5482  0.6678 | 1.4605  0.6713 | 1.5575  0.6562 |  1071 min 
+0.0100   32.0 k   1.33  | 1.5424  0.6713 | 1.5177  0.6588 | 1.2655  0.6797 |  1117 min 
+0.0100   33.0 k   1.38  | 1.5468  0.6691 | 1.4209  0.6848 | 1.4280  0.6484 |  1163 min 

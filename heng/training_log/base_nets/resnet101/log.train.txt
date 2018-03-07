@@ -1,0 +1,44 @@
+--- [START 2017-10-27_00_37_05] ----------------------------------------------------------------
+
+** some experiment setting **
+	SEED         = 1509035825
+	PROJECT_PATH = /home/ck/project/build/dummy-00
+	out_dir      = /home/ck/project/results/resnet101-160-08b
+
+** net setting **
+<class 'net.model.cdiscount.resnet101.ResNet101'>
+
+
+** dataset setting **
+	train_dataset.split = train_id_v0_7019896
+	valid_dataset.split = valid_id_v0_5000
+	len(train_dataset)  = 12283645
+	len(valid_dataset)  = 8785
+	len(train_loader)   = 23991
+	len(valid_loader)   = 18
+	batch_size  = 512
+	iter_accum  = 4
+	batch_size*iter_accum  = 2048
+
+
+	initial_checkpoint = /home/ck/project/results/resnet101-160-08a/checkpoint/00273000_model.pth
+** start training here! **
+ optimizer=<torch.optim.sgd.SGD object at 0x7f4c76079048>
+ momentum=0.900000
+ LR=Step Learning Rates
+rates=[' 0.0005']
+steps=['      0']
+
+ images_per_epoch = 12283645
+
+   rate   iter(k)  epoch   num(m)  | valid_loss/acc | train_loss/acc | batch_loss/acc |  time   
+------------------------------------------------------------------------------------------------
+0.00000  273.0 k  11.38  139.78 | 1.3987  0.6980 | 0.0000  0.0000 | 0.0000  0.0000 |  0 hr 00 min 
+0.00020  274.0 k  11.55  141.82 | 1.4000  0.6981 | 1.2225  0.7197 | 1.1064  0.7441 |  0 hr 48 min 
+0.00020  275.0 k  11.71  143.87 | 1.4002  0.6982 | 1.2352  0.7143 | 1.2343  0.7266 |  1 hr 35 min 
+0.00020  276.0 k  11.88  145.92 | 1.3990  0.6977 | 1.2257  0.7174 | 1.2262  0.7227 |  2 hr 23 min 
+0.00020  277.0 k  12.05  147.97 | 1.4016  0.6972 | 1.2049  0.7216 | 1.2755  0.7266 |  3 hr 10 min 
+0.00020  278.0 k  12.21  150.02 | 1.3984  0.6993 | 1.2356  0.7161 | 1.2411  0.6992 |  3 hr 57 min 
+0.00020  279.0 k  12.38  152.06 | 1.3962  0.6981 | 1.2190  0.7179 | 1.3120  0.7305 |  4 hr 45 min 
+0.00020  280.0 k  12.55  154.11 | 1.3971  0.6988 | 1.2190  0.7191 | 1.1696  0.7324 |  5 hr 32 min 
+
